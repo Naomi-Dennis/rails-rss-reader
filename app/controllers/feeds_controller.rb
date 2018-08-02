@@ -1,6 +1,9 @@
 class FeedsController < ApplicationController
 
 
+
+    ### Get Requests 
+
     # get '/edit_feeds' do
     #   @current_user = User.getLoggedUser(session[:id])
     #   if !@current_user.nil?
@@ -37,6 +40,8 @@ class FeedsController < ApplicationController
     #   end
     # end
 
+    ### post/patch requests 
+    
     # post '/get_feed/:id' do
     #   redirect "/feeds/#{params[:id]}"
     # end

@@ -25,6 +25,12 @@ class Feed < ActiveRecord::Base
     end
   end
 
+  def setArticles
+    if articles.empty? 
+       articles << parse_articles
+    end 
+  end 
+  
   def parse_articles
     data = open(url)
     feed = RSS::Parser.parse(data)
@@ -32,8 +38,8 @@ class Feed < ActiveRecord::Base
     feed.channel.items.collect do | item |
         parse_description = Nokogiri::HTML(item.description).css("body").text
         item.date = Time.now if item.date.nil?
-        new_article = Article.create(title: item.title, description: parse_description , image: nil, link: item.link, date: item.date)
-      new_article
+        new_article = Article.create(title: item.title, description: parse_description ,  link: item.link, date: item.date)
+        new_article
     end
   end
 end
