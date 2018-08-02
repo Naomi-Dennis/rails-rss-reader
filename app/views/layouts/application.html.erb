@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>RssReader</title>
+  <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+          <style>
+            body {
+              font-family: sans-serif;
+            }
+
+            .brand {
+              font-family: monospace;
+              font-size: 1.5em;
+            }
+
+            nav {
+              background: #dfdfdf;
+              height: 50px;
+            }
+
+            nav ul li {
+              display: inline-block;
+              margin: 15px 20px;
+              color: #000;
+            }
+
+            nav ul li a {
+              color: #000;
+              text-decoration: none;
+            }
+
+            nav ul li a:hover {
+              text-decoration: underline;
+            }
+          </style>
+</head>
+
+<body>
+
+
+  <nav>
+    <!-- Brand -->
+    <ul>
+      <% if @isLoggedIn %>
+
+        <li class="brand">
+          <%= link_to "Simplicity RSS Reader", "/" %>
+        </li>
+        <li class="nav-item">
+          <% if @current_user.feeds.empty? %>
+            <a class="" href="/feeds/none" %>View Feeds</a>
+            <% else %>
+              <a class="" href="/feeds/<%= @current_user.feeds.first.id %>">View Feeds</a>
+              <% end %>
+        </li>
+        <li class="nav-item">
+          <a class="" href="/edit_feeds" %>Edit Feeds</a>
+        </li>
+        <li>
+          <%= link_to "View Account", user_url(getLoggedUser) %>
+        </li>
+        <li>
+          <%= link_to "Sign Out", logout_user_url %>
+        </li>
+        <% else %>
+          <li class="brand">
+            <%= link_to "Simplicity RSS Reader", "/" %>
+          </li>
+          <li>
+            <%= link_to "Sign In", login_user_url %>
+          </li>
+          <li>
+            <%= link_to "Sign Up", new_user_url %>
+          </li>
+    </ul>
+    <% end %>
+      <!-- Links -->
+  </nav>
+
+  <% if flash %>
+    <p>
+      <%= flash[:alert] %>
+    </p>
+    <% end %>
+
+      <%= yield %>
+</body>
+
+</html>

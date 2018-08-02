@@ -1,0 +1,14 @@
+<div id="login-content">
+  <header>
+    <h1>Simplicity RSS Reader</h1>
+  </header>
+  <main>
+    <%= form_tag users_path, method: "post" do %>
+       <%= username_field %><br/>
+       <%= password_field %><br/>
+       <%= password_confirm_field%> <br/>
+       <%= email_field  %> <br/><br/>
+       <%= submit_button "Sign Up" %>
+    <% end %>  
+  </main>
+</div>

@@ -1,0 +1,12 @@
+<div id="login-content">
+  <header>
+    <h1>Simplicity RSS Reader</h1>
+  </header>
+  <main>
+      <%= form_tag process_login_url, method: "post" do %> 
+        <%= username_field %> <br/>
+        <%= password_field %> <br/>
+        <%= submit_button "Login" %>
+      <% end %> 
+  </main>
+</div>
