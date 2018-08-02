@@ -1,6 +1,8 @@
 class FeedsController < ApplicationController
 
+    def index
 
+    end 
 
     ### Get Requests 
 
@@ -41,7 +43,7 @@ class FeedsController < ApplicationController
     # end
 
     ### post/patch requests 
-    
+
     # post '/get_feed/:id' do
     #   redirect "/feeds/#{params[:id]}"
     # end
@@ -83,25 +85,29 @@ class FeedsController < ApplicationController
     #     redirect '/edit_feeds'
     #   end
 
-    #   patch '/add_feed' do
-    #     url = params[:feed]
-    #     added_user_feed = Feed.find_by(url: url)
-    #     if added_user_feed.nil?
-    #       added_user_feed = Feed.create(url: url)
-    #       added_user_feed.articles << added_user_feed.parse_articles
-    #     else
-    #         added_user_feed.updateFeed
-    #      end
-    #     added_user_feed.save
-    #     user = User.find_by(id: session[:id])
-    #      if !user.feeds.include?(added_user_feed)
-    #        user.feeds << added_user_feed
-    #         user.save
-    #      else
-    #        flash[:message] = "#{added_user_feed.name} is already in your feeds."
-    #      end
-    #      last_feed = added_user_feed.id
-    #      redirect "/edit_feeds"
-    #   end
+     ## patch '/add_feed' do
+    def create 
+        url = params[:feed_url]
+        added_user_feed = Feed.find_by(url: url)
+        unless added_user_feed
+          added_user_feed = Feed.create(url: url)
+          added_user_feed.setArticles
+        else
+            added_user_feed.updateFeed
+        end
+
+        added_user_feed.save
+        
+        user = getLoggedUser
+        if !user.feeds.include?(added_user_feed)
+           user.feeds << added_user_feed
+           user.save
+        else
+          flash[:alert] = "#{added_user_feed.name} is already in your feeds."
+        end
+        last_feed = added_user_feed.id
+        
+         redirect_to "/"
+    end
 
 end
