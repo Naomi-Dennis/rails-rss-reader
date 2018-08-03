@@ -91,7 +91,7 @@ class UsersController < ApplicationController
     def process_login 
           logged_user = User.find_by(username: params[:username] ).authenticate(params[:password])
         
-          if logged_user.nil? 
+          unless logged_user
             flash[:alert] = "Inavelid Creditentials Not Found"
             redirect_to login_user_url
             return

@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: rss-reader_production
-  username: rss-reader
+  username: localhost
   password: <%= ENV['RSS-READER_DATABASE_PASSWORD'] %>
