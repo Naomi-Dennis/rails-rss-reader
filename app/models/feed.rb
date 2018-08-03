@@ -8,20 +8,31 @@ class Feed < ActiveRecord::Base
 
   has_many :articles
 
+  ## class functions 
+  def self.updateAllFeeds 
+    Feed.all.map{ |feed| feed.updateFeed }
+  end 
+  ## instance functions
+  def isFeedUpdated? 
+    data = open(url)
+    feed = RSS::Parser.parse(data, false)
+    feed.channel.items.first.date == articles[0].date unless articles.empty?
+  end 
 
-  ## instance functions 
   def isTodaysFeed?
     if !articles.empty?
-    feed_date = Date.rfc2822( articles[0].date )
-    todays_date = Date.today
-    feed_date == todays_date
-  end
+      feed_date = Date.rfc2822( articles[0].date )
+      todays_date = Date.today
+      return feed_date == todays_date
+    end
+    false
   end
 
   def updateFeed
-    if !self.isTodaysFeed?
+    if !self.isTodaysFeed? && !isFeedUpdated?
       articles.clear
       articles << self.parse_articles
+      save
     end
   end
 
@@ -33,13 +44,15 @@ class Feed < ActiveRecord::Base
   
   def parse_articles
     data = open(url)
-    feed = RSS::Parser.parse(data)
+    feed = RSS::Parser.parse(data, false)
+    
     self[:name] = feed.channel.title
     feed.channel.items.collect do | item |
-        parse_description = Nokogiri::HTML(item.description).css("body").text
-        item.date = Time.now if item.date.nil?
-        new_article = Article.create(title: item.title, description: parse_description ,  link: item.link, date: item.date)
-        new_article
+          parse_description = Nokogiri::HTML(item.description).css("body").text
+          item.date = Time.now if item.date.nil?
+          new_article = Article.create(title: item.title, description: parse_description ,  link: item.link, date: item.date)
+          new_article
     end
   end
+
 end
