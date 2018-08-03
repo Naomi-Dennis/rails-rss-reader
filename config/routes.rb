@@ -5,9 +5,12 @@ Rails.application.routes.draw do
   get "/logout", to: "users#signout", as: "logout_user"
 
   get "/view_feeds", to: "feeds#view_feeds", as: "view_feeds"
+
+  get "/edit_feeds", to: "feeds#edit", as: "edit_feeds"
   
   resources :users, only: [:new, :show, :create, :update, :destroy]
-  resources :feeds, only: [:index, :create, :show]
+  resources :feeds, only: [:index, :create, :show,  :update]
+  
 
   root "welcome#index"
 end

@@ -8,6 +8,11 @@ class FeedsController < ApplicationController
         @feed = Feed.find(params[:id])
         @articles = @feed.articles
     end 
+
+    def edit 
+        @feeds = getLoggedUser.feeds 
+    end 
+    
     ### Get Requests 
 
     # get '/edit_feeds' do

@@ -1,0 +1,7 @@
+<h1>Edit Feeds</h1>
+<%= text_field_tag "selected_feed", nil, list: "my_feeds" %>
+<datalist id="my_feeds">
+    <% @feeds.each do | feed | %>
+        <option value="<%= feed.name %>">
+    <% end %> 
+</datalist>
