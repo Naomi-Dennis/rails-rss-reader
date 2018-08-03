@@ -51,12 +51,8 @@
         <li class="brand">
           <%= link_to "Simplicity RSS Reader", "/" %>
         </li>
-        <li class="nav-item">
-          <% if @current_user.feeds.empty? %>
-            <a class="" href="/feeds/none" %>View Feeds</a>
-            <% else %>
-              <a class="" href="/feeds/<%= @current_user.feeds.first.id %>">View Feeds</a>
-              <% end %>
+         <li>
+          <%= link_to "View Feeds", feeds_url %>
         </li>
         <li class="nav-item">
           <a class="" href="/edit_feeds" %>Edit Feeds</a>
