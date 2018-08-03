@@ -92,7 +92,7 @@ class UsersController < ApplicationController
           logged_user = User.find_by(username: params[:username] ).authenticate(params[:password])
         
           unless logged_user
-            flash[:alert] = "Inavelid Creditentials Not Found"
+            flash[:alert] = "Invalid Creditentials Not Found"
             redirect_to login_user_url
             return
           else
