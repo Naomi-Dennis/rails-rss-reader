@@ -97,7 +97,7 @@ class UsersController < ApplicationController
             return
           else
             session[:id] = logged_user.id
-            redirect_to user_url(logged_user)
+            redirect_to feeds_url
             return 
           end
         end
