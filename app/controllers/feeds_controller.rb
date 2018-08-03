@@ -1,7 +1,7 @@
 class FeedsController < ApplicationController
 
     def index
-
+        @feeds = getLoggedUser.feeds
     end 
 
     ### Get Requests 
