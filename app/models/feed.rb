@@ -48,8 +48,8 @@ class Feed < ActiveRecord::Base
     self[:name] = feed.channel.title
     feed.channel.items.collect do | item |
           parse_description = Nokogiri::HTML(item.description).css("body").text
-          item.date = DateTime.now.strf("%B %d, %Y") if item.date.nil?
-          new_article = Article.create(title: item.title, description: parse_description ,  link: item.link, date: item.date)
+          item.date = DateTime.now unless item.date
+          new_article = Article.create(title: item.title, description: parse_description ,  link: item.link, date:  item.date.strftime("%B %d, %Y") )
           new_article
     end
   end
