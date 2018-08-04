@@ -10,7 +10,10 @@ class FeedsController < ApplicationController
     end 
 
     def edit 
-        @feeds = getLoggedUser.feeds 
+        @feed = Feed.find(params[:id])
+        @feeds = Feed.all
+        @articles = @feed.articles 
+        
     end 
     
     ### Get Requests 

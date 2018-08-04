@@ -5,10 +5,11 @@
 <% end %>
 <hr />
 <% unless @feeds.empty? %>
+   
     <% @feeds.each do | feed | %>
-         <h2><%=feed.name %></h2>
+         <h2><%= link_to feed.name, edit_feed_path(feed) %></h2>
          <ul>
-           <% feed.articles[0..6].each do | article | %>
+           <% feed.articles.each do | article | %>
              <li>
                  <h3><%= link_to article.title, article.link, target: "_blank" %></h3>
                  <p><%= article.description %> </p>

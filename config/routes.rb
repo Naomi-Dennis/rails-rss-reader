@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "/edit_feeds", to: "feeds#edit", as: "edit_feeds"
   
   resources :users, only: [:new, :show, :create, :update, :destroy]
-  resources :feeds, only: [:index, :create, :show,  :update]
+  resources :feeds, only: [:index, :create, :show,  :update, :edit]
   
 
   root "welcome#index"
