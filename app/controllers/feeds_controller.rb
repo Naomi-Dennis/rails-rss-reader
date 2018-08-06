@@ -26,12 +26,12 @@ class FeedsController < ApplicationController
     def edit 
         @feed = Feed.find(params[:id])
         @articles = @feed.articles 
-        @articlesByDate = {}
+        @articlesByDate = Hash.new
         date = DateTime.now 
-        i = 0
+        i = 0 
         while i < 7 do
             date = (DateTime.now - i).strftime("%B %d, %Y")
-            queriedArticles = Article.where(date: date)
+            queriedArticles = Article.where(date: date).select(:title, :description)
             if date ==  (DateTime.now).strftime("%B %d, %Y")
                 date = "Today"
             else    
