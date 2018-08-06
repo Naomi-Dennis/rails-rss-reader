@@ -67,7 +67,7 @@ class UsersController < ApplicationController
             logged_user = getLoggedUser.authenticate(old_password)
             
             if logged_user
-              logged_user.email = email unless email.empty?
+              logged_user.update(email: email) unless email.empty?
               logged_user.update(password: new_password, password_confirmation: new_password) unless new_password.empty? 
               flash[:alert] = "Account updated"
             else

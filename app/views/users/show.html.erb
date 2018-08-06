@@ -5,11 +5,11 @@
   <main>
      <%= form_tag user_url(@current_user), method: "patch" do %> 
         <p>Change Password Below</p>
-        <%= text_field_tag "password", nil, placeholder: "New Password"%> 
+        <%= text_field_tag "password", nil, type:"password", placeholder: "New Password"%> 
         <p>Current Email: <%= @current_user.email %></p>
         <%= text_field_tag "email", nil, placeholder: "New Email"%> 
         <br/><br/><br/><br/><br/><br/>
-        <%= text_field_tag "password_confirmation", nil, placeholder: "Current Password"%> <br/>
+        <%= text_field_tag "password_confirmation", nil, type:"password", placeholder: "Current Password"%> <br/>
         <%= submit_button "Submit Changes" %> 
      <% end %> 
   </main>
