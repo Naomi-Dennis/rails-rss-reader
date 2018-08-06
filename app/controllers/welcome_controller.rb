@@ -5,22 +5,13 @@ class WelcomeController < ApplicationController
         Feed.updateAllFeeds
         @feeds = getLoggedUser.feeds
         @articlesByDate = { }
+        @date = DateTime.now.strftime("%B %d, %Y")
         @feeds.each do | feed | 
-            @articles = feed.articles 
-            @articlesByDate = Hash.new
-            @articlesByDate[feed.name] = Hash.new
-            i = 0
-            while i < 7 do
-             date = (DateTime.now - i).strftime("%B %d, %Y")
-             queriedArticles = Article.where(date: date).select(:title, :description)
-             if date ==  (DateTime.now).strftime("%B %d, %Y")
-                 date = "Today"
-                else    
-                 date = (DateTime.now - i).strftime("%A %B %d, %Y")
-             end
-             @articlesByDate[feed.name][date] = queriedArticles unless queriedArticles.nil? || queriedArticles.empty? 
-             i += 1
-          end
+            queriedArticles = feed.articles.where(date: @date)
+            unless queriedArticles.nil? || queriedArticles.empty?
+              @articlesByDate[feed] = Hash.new
+              @articlesByDate[feed] = queriedArticles
+            end
         end 
     end 
 
