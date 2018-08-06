@@ -6,14 +6,40 @@ class FeedsController < ApplicationController
 
     def show
         @feed = Feed.find(params[:id])
-        @articles = @feed.articles
+        @articles = @feed.articles 
+        @articlesByDate = {}
+        date = DateTime.now 
+        i = 0
+        while i < 7 do
+            date = (DateTime.now - i).strftime("%B %d, %Y")
+            queriedArticles = Article.where(date: date)
+            if date ==  (DateTime.now).strftime("%B %d, %Y")
+                date = "Today"
+            else    
+                date = (DateTime.now - i).strftime("%A %B %d, %Y")
+            end
+            @articlesByDate[date] = queriedArticles unless queriedArticles.nil?
+            i += 1
+        end
     end 
 
     def edit 
         @feed = Feed.find(params[:id])
-        @feeds = Feed.all
         @articles = @feed.articles 
-        
+        @articlesByDate = {}
+        date = DateTime.now 
+        i = 0
+        while i < 7 do
+            date = (DateTime.now - i).strftime("%B %d, %Y")
+            queriedArticles = Article.where(date: date)
+            if date ==  (DateTime.now).strftime("%B %d, %Y")
+                date = "Today"
+            else    
+                date = (DateTime.now - i).strftime("%A %B %d, %Y")
+            end
+            @articlesByDate[date] = queriedArticles unless queriedArticles.nil?
+            i += 1
+        end
     end 
     
     ### Get Requests 
