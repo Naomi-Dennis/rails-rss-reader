@@ -4,9 +4,10 @@
   </header>
   <main>
       <%= form_tag process_login_url, method: "post" do %> 
-        <%= username_field %> <br/>
-        <%= password_field %> <br/>
+        <%= username_field %>
+        <%= password_field %>
         <%= submit_button "Login" %>
-      <% end %> 
+      <% end %>
+      <p>Don't have an account? <%= link_to "Sign Up", new_user_url %></p> 
   </main>
 </div>

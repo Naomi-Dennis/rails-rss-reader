@@ -1,10 +1,10 @@
 module UserHelper
-    def username_field 
-        text_field_tag "username", nil, placeholder: "Username", required: true
+    def username_field
+        text_field_tag "username", nil, placeholder: "Username", type:"text", required: true
     end 
 
     def email_field
-        text_field_tag "email", nil, placeholder: "Email", required: true
+        text_field_tag "email", nil, placeholder: "Email", type:"text", required: true
     end 
 
     def password_field 

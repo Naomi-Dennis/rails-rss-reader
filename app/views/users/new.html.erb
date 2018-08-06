@@ -4,11 +4,12 @@
   </header>
   <main>
     <%= form_tag users_path, method: "post" do %>
-       <%= username_field %><br/>
-       <%= password_field %><br/>
-       <%= password_confirm_field%> <br/>
-       <%= email_field  %> <br/><br/>
+       <%= username_field %>
+       <%= password_field %>
+       <%= password_confirm_field%> 
+       <%= email_field  %>
        <%= submit_button "Sign Up" %>
     <% end %>  
+     <p>Already have an account? <%= link_to "Sign In", login_user_url %></p> 
   </main>
 </div>
