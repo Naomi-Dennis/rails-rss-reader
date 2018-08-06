@@ -2,14 +2,15 @@
 }
 #view-feed-container h1{
     text-align: center; 
+    font-size: 2.5em; 
 }
 #view-feed-container .main-layout-left{
     float: left; 
-    width: 12%;
+    width: 14%;
 }
 #view-feed-container .main-layout-right{
     float: right; 
-    width: 87%; 
+    width: 85%; 
     height: 700px;
 overflow-y: scroll;
 }
@@ -24,10 +25,40 @@ overflow-y: scroll;
 .main-layout-right ul li:hover{
     background: rgba(255,255,255,1);
 }
-.main-layout-right ul{
+.main-layout-right ul, .main-layout-left ul{
     list-style: none; 
-   
+}
+#view-feed-container h2, #view-feed-container h1{
+    color: #fff;
+    text-shadow: 1px 1px 5px #000;
+}
+.main-layout-right h2{
+    text-align: center; 
+    margin-right: 20px; 
+    font-size: 2em
+}
+.main-layout-left h2{
+    text-align: center; 
+    margin-left: 20px; 
 }
 #view-feed-container .main-layout-right::after{
     float: clear; 
+}
+
+.main-layout-left ul li{
+    margin: 20px 0px ;
+    color: #000; 
+    font-weight: bold; 
+    padding: 5px 10px ;
+     cursor: pointer; 
+      border:1px solid #000;
+   background: rgba(255,255,255,0.7);
+}
+.main-layout-left ul li:hover{
+    background: rgba(255,255,255,0.5);
+}
+
+#view-feed-container a,#view-feed-container a:hover{
+    text-decoration: none; 
+    color:  #000; 
 }

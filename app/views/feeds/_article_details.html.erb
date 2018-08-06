@@ -7,13 +7,27 @@
     <% @articles = @articlesByDate[date] %> 
       <ul>
          <% @articles.each do | article| %> 
+          <a href="<%= article.link %>" target="_blank">
          <li>
+          
            <h3><%= article.title %></h3> 
           <%= article.description %>
+         
           </li>
+           </a>
          <% end %> 
      </ul>
     <% end %>
 <% end %> 
+</div>
+<div class="main-layout-left">
+  <h2>Other Feeds</h2>
+  <ul>
+    <% @allFeeds.each do | feed | %>
+      <a href="<%= edit_feed_url( feed )%>">
+         <li><%= feed.name %></li>
+      </a>
+   <% end %>
+  </ul>
 </div>
 </div>
