@@ -1,14 +1,15 @@
-<div id="account-content">
+<div id="login-content">
   <header>
     <h1>Simplicity RSS Reader</h1>
   </header>
   <main>
      <%= form_tag user_url(@current_user), method: "patch" do %> 
-         <p id="account-username" class="secondary-font" title="Contact admin@rss.com to change your username">Username: <%= @current_user.username %><p>
-        <%= text_field_tag "password", nil, placeholder: "Password"%> <br/><br/>
-        <%= text_field_tag "email", nil, placeholder: "Email"%> <br/>
+        <p>Change Password Below</p>
+        <%= text_field_tag "password", nil, placeholder: "New Password"%> 
+        <p>Current Email: <%= @current_user.email %></p>
+        <%= text_field_tag "email", nil, placeholder: "New Email"%> 
         <br/><br/><br/><br/><br/><br/>
-        <%= password_confirm_field %> <br/>
+        <%= text_field_tag "password_confirmation", nil, placeholder: "Current Password"%> <br/>
         <%= submit_button "Submit Changes" %> 
      <% end %> 
   </main>
