@@ -1,36 +1,5 @@
-<h1>Feeds</h1>
 <h1>Add New Feed</h1>
 <%= form_tag feeds_url, method:"post" do %>
     <%= text_field_tag "feed_url", nil,  size: "100px" %>
-        <br/>
-        <br/>
-        <%= submit_tag "Read" %>
-            <% end %>
-                <hr/>
-                <% unless @articlesByDate.empty?  %>
-                    <h1>Articles for Today,
-                        <%= @date %>
-                    </h1>
-                    <% @articlesByDate.each_key do | feed | %>
-                        <h2>
-                            <%= link_to feed.name, edit_feed_url(feed)  %>
-                        </h2>
-                        <% @articlesByDate[feed].each do | article | %>
-                            <ul>
-                                <li>
-                                    <h4>
-                                        <%= link_to article.title, article.link %>
-                                    </h4>
-                                    <%= article.description %>
-                                </li>
-                            </ul>
-                        <% end %>
-                 <% end %>
-            <% else %>  
-            <h2>How to Add Articles</h2>
-            <ol>
-                <li>Paste a RSS URL in the box above</li>
-                <li>Cick Read</li>
-                <li>Enjoy!</li>
-            </ol>
- <% end %>
+     <%= submit_tag "Read" %>
+<% end %>
