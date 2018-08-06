@@ -1,15 +1,5 @@
-<h1><%= @feed.name %></h1>
-<% @articlesByDate.each_key do |date| %>
- <% if @articlesByDate[date].length > 0 %>
-    <h2><%= date %></h2>
-    <% @articles = @articlesByDate[date] %> 
-      <ul>
-         <% @articles.each do | article| %> 
-         <li>
-           <h3><%= article.title %></h3> 
-          <%= article.description %>
-          </li>
-         <% end %> 
-     </ul>
-    <% end %>
-<% end %> 
+<%= form_tag feed_url(@feed), method: "delete"  %>
+    <%= submit_tag "Delete Feed" %>
+</form>
+<br/>
+<%= render "article_details" %> 

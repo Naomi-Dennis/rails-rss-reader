@@ -113,15 +113,13 @@ class FeedsController < ApplicationController
     #   end
 
     #   delete '/remove_feeds' do
-    #     # Removes a certain feed from the user's feed list.
-    #     feeds = params["selected_feeds"]
-    #     @current_user = User.getLoggedUser(session[:id])
-    #     @current_user.feeds = @current_user.feeds.reject do | feed |
-    #       feeds.include?(feed.id.to_s)
-    #     end
-    #     @current_user.save!
-    #     redirect '/edit_feeds'
-    #   end
+    def destroy
+        # Removes a certain feed from the user's feed list.
+        @feed_name = Feed.find(params[:id]).name
+        getLoggedUser.feeds.delete(params[:id])
+        flash[:alert] = "#{@feed_name} has been deleted."
+        redirect_to "/"
+      end
 
      ## patch '/add_feed' do
     def create 
