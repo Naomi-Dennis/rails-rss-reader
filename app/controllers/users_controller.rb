@@ -33,6 +33,13 @@ class UsersController < ApplicationController
 
     ## get '/account'
     def show
+        max_backgrounds = 12 
+        i = 1
+        @background_file_names = []
+        while i < max_backgrounds do 
+          @background_file_names << "default_backgrounds/background-#{i}.jpg"
+          i += 1
+        end 
     end
   
     # ###### custom GET requests  
