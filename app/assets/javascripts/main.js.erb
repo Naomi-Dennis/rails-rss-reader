@@ -10,9 +10,9 @@ function init(){
    let user = document.getElementById("user") 
    let body = document.getElementsByTagName("body")[0]
    let isLoggedIn = (user.dataset.checkLogin == "true")
-   let image = document.getElementById("userBackground").dataset.userBackground
+   let image = (document.getElementById("userBackground") ? document.getElementById("userBackground").dataset.userBackground : "" )
    if(!isLoggedIn){
-      body.style.background = "radial-gradient(circle, rgba(148,172,189,1) 0%, rgba(127,145,173,1) 100%)"
+      body.style.background = "#5d687a"
    }
    else{
      body.style.background = 'url(' + image + ') no-repeat'
