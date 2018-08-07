@@ -11,7 +11,7 @@
          <li>
           
            <h3><%= article.title %></h3> 
-          <%= article.description %>
+          <p><%= article.description %></p>
          
           </li>
            </a>
@@ -24,7 +24,7 @@
   <h2>Other Feeds</h2>
   <ul>
     <% @allFeeds.each do | feed | %>
-      <a href="<%= edit_feed_url( feed )%>">
+      <a href="<%= edit_feed_url( feed )%>" >
          <li><%= feed.name %></li>
       </a>
    <% end %>
