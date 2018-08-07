@@ -8,7 +8,7 @@
 
 <% @feeds.each do | feed | %>
 <div class="article-shortcut">
-<a href="<%= edit_feed_url(feed) %>", target="_blank">
+<a href="<%= edit_feed_url(feed) %>">
      <h2><%= feed.name %></h2>
      <span><%= "#{feed.articles.count} Unread" %></span>
  </a>

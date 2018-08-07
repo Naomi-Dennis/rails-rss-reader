@@ -13,6 +13,7 @@ class WelcomeController < ApplicationController
               @articlesByDate[feed] = queriedArticles
             end
         end 
+        @feeds = @feeds.sort{ |a,b| (a.url < b.url) ? -1 : ( (a.url > b.url) ? 1 : 0  ) }
     end 
 
 
