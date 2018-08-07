@@ -8,11 +8,9 @@
       <ul>
          <% @articles.each do | article| %> 
           <a href="<%= article.link %>" target="_blank">
-         <li>
-          
+         <li>          
            <h3><%= article.title %></h3> 
           <p><%= article.description %></p>
-         
           </li>
            </a>
          <% end %> 

@@ -14,7 +14,8 @@ function init(){
       body.style.background = "radial-gradient(circle, rgba(148,172,189,1) 0%, rgba(127,145,173,1) 100%)"
    }
    else{
-     body.style.background = 'url(<%= asset_path "background-1.jpeg" %>) no-repeat'
+     body.style.background = 'url(<%= asset_path "default_backgrounds/background-1.jpeg" %>) no-repeat'
+     body.style["background-size"] = "cover"
    }
   
 }
