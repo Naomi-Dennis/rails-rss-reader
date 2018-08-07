@@ -1,0 +1,10 @@
+#view-account form input[type="radio"]{
+    display: none; 
+}
+#view-account form input[type="radio"] + label{
+    cursor: pointer;
+}
+#view-account form input[type="radio"]:checked + label img{
+opacity: 0.5;
+
+}

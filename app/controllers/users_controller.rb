@@ -40,6 +40,9 @@ class UsersController < ApplicationController
           @background_file_names << "default_backgrounds/background-#{i}.jpg"
           i += 1
         end 
+
+        @current_background = getLoggedUser.background 
+        @background_file_names.delete_at( @background_file_names.index @current_background )
     end
   
     # ###### custom GET requests  
@@ -70,18 +73,18 @@ class UsersController < ApplicationController
             new_password = params[:password]
             old_password = params[:password_confirmation]
             email = params[:email]
-  
-            logged_user = getLoggedUser.authenticate(old_password)
-            
-            if logged_user
-              logged_user.update(email: email) unless email.empty?
-              logged_user.update(password: new_password, password_confirmation: new_password) unless new_password.empty? 
+            background = params[:background]
+            checkUser = getLoggedUser.authenticate(old_password)
+            if checkUser
+              checkUser.update(background: background)
+              checkUser.update(email: email) unless email.empty?
+              checkUser.update(password: new_password, password_confirmation: new_password) unless new_password.empty? 
               flash[:alert] = "Account updated"
             else
               flash[:alert] = "Password Incorrect"
             end
 
-             redirect_to user_url(logged_user)
+             redirect_to user_url(getLoggedUser)
     end
 
 
