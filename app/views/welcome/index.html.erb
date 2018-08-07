@@ -1,7 +1,7 @@
 <div id="index-container">
 <h1>Add New Feed</h1>
 <%= form_tag feeds_url, method:"post" do %>
-    <%= text_field_tag "feed_url", nil,  size: "100px" %>
+    <%= text_field_tag "feed_url", nil,  size: "100px", placeholder:"Example: http://feeds.feedburner.com/TechCrunch/fundings-exits" %>
     <br/>
      <%= submit_tag "Read" %>
 <% end %>

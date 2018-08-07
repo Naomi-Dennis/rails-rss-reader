@@ -14,7 +14,7 @@
   display: block;
   margin: 0 auto;
 }
-#login-content input[type="text"],#login-content input[type="password"]{
+ input[type="text"],#login-content input[type="password"]{
   width: 70%;
   height: 30px;
   border: 1px solid rgba(0,0,0,0.3);  
@@ -27,7 +27,7 @@
 #login-content input:nth-child(n+1){
   margin-bottom: 30px;
 }
-#login-content input[type="submit"]{
+ input[type="submit"]{
   background: #a2c5ac; 
   box-shadow: unset;
   border:none;
@@ -41,7 +41,7 @@
   font-weight: 100;
 }
 
-#login-content input[type="submit"]:hover{
+input[type="submit"]:hover{
  text-decoration: underline; 
  cursor: pointer; 
 }

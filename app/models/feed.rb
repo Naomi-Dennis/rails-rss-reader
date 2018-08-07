@@ -47,7 +47,7 @@ class Feed < ActiveRecord::Base
     feed = RSS::Parser.parse(data, false)
     self[:name] = feed.channel.title
     self[:link] = feed.channel.link 
-    self[:image] = (feed.channel.image.nil? ? (asset_path 'blank-favicon.jpeg') : feed.channel.image.url)
+ #   self[:image] = (feed.channel.image.nil? ? (asset_path 'blank-favicon.jpeg') : feed.channel.image.url)
     feed.channel.items.collect do | item |
           parse_description = Nokogiri::HTML(item.description).css("body").text
           item_date = item.date
