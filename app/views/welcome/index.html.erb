@@ -5,7 +5,7 @@
     <br/>
      <%= submit_tag "Read" %>
 <% end %>
-
+<div id="article-shortcut-container">
 <% @feeds.each do | feed | %>
 <div class="article-shortcut">
 <a href="<%= edit_feed_url(feed) %>">
@@ -14,4 +14,5 @@
  </a>
  </div>
 <% end %>
+</div>
 </div>
