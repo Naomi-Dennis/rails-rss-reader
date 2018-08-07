@@ -42,6 +42,7 @@ class FeedsController < ApplicationController
             @articlesByDate[date] = queriedArticles unless queriedArticles.nil?
             i += 1
         end
+        @allFeeds = @allFeeds.sort{ |a,b| (a.url < b.url) ? -1 : ( (a.url > b.url) ? 1 : 0  ) }
     end 
     
     ### Get Requests 

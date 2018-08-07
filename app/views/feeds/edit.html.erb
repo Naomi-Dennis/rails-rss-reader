@@ -1,5 +1,5 @@
-<%= form_tag feed_url(@feed), method: "delete"  %>
-    <%= submit_tag "Delete Feed" %>
+<%= form_tag feed_url(@feed), method: "delete", id:"delete-feed-form" %>
+    <%= submit_tag "Unfollow" %>
 </form>
 <br/>
 <%= render "article_details" %> 
