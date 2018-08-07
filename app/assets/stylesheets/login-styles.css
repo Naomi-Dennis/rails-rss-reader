@@ -15,7 +15,6 @@
 }
  input[type="text"],#login-content input[type="password"]{
   width: 70%;
-  height: 30px;
   border: 1px solid rgba(0,0,0,0.3);  
   border-radius: 5px;
   padding: 10px;
