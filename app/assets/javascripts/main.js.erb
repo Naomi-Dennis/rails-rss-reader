@@ -11,11 +11,12 @@ function init(){
    let body = document.getElementsByTagName("body")[0]
    let isLoggedIn = (user.dataset.checkLogin == "true")
    if(!isLoggedIn){
-        body.style.background = "radial-gradient(circle, rgba(148,172,189,1) 0%, rgba(127,145,173,1) 100%)" 
-       
+      body.style.background = "radial-gradient(circle, rgba(148,172,189,1) 0%, rgba(127,145,173,1) 100%)"
    }
    else{
-       body.style.background = "url(<%= asset_path 'background-1.jpeg' %>) no-repeat"
+     body.style.background = 'url(<%= asset_path "background-1.jpeg" %>) no-repeat'
    }
+  
 }
-window.onload = init
+
+document.addEventListener("turbolinks:load", (event)=>{init();}); 
