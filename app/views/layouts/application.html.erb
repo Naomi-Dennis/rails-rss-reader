@@ -16,6 +16,9 @@
 <body>
 
   <input id="user" type="hidden" data-check-login="<%= !getLoggedUser.nil? %>">
+  <% unless getLoggedUser.nil? %>
+   <input id="userBackground" type="hidden" data-user-background="<%= asset_path getLoggedUser.background %>">
+  <% end %>
   <nav>
     <!-- Brand -->
     <ul>
