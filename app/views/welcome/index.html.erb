@@ -1,12 +1,17 @@
+<div id="index-container">
 <h1>Add New Feed</h1>
 <%= form_tag feeds_url, method:"post" do %>
     <%= text_field_tag "feed_url", nil,  size: "100px" %>
+    <br/>
      <%= submit_tag "Read" %>
 <% end %>
+
+<% @feeds.each do | feed | %>
 <div class="article-shortcut">
-<a href="">
-    <h2>Title</h2>
-    <span>All Caught Up!</span>
-    <img src="<%= asset_path "blank-favicon.jpeg" %>">
-</a>
+<a href="<%= edit_feed_url(feed) %>", target="_blank">
+     <h2><%= feed.name %></h2>
+     <span><%= "#{feed.articles.count} Unread" %></span>
+ </a>
+ </div>
+<% end %>
 </div>

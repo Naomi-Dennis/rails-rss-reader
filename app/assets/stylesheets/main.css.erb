@@ -1,33 +1,60 @@
 @import url('https://fonts.googleapis.com/css?family=Satisfy');
 body {
-    background: url(<%= asset_path "background-1.jpeg" %>) no-repeat; 
-    overflow-y: scroll;   
+    background: url(<%= asset_path "background-1.jpeg" %>) no-repeat;
+    overflow-y: scroll;
 }
-nav{
-    position:fixed;
+
+nav {
+    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.7);
-}
-nav ul{
-    margin-top: 0; 
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    background: #dfdfdf;
+    height: 50px;
 }
 
-#flash-alert{
+nav ul {
+    margin-top: 0;
+}
+
+.brand {
+    font-family: 'Satisfy';
+    font-size: 1.5em;
+    word-spacing: 2px; 
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 15px 20px;
+    color: #000;
+}
+
+nav ul li a {
+    color: #000;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+#flash-alert {
     margin-top: 70px;
     text-align: center;
-    color:white; 
+    color: white;
 }
 
-.left-side{
-    float:left; 
+.left-side {
+    float: left;
     width: 48%;
 }
-.right-side{
+
+.right-side {
     float: right;
-    width: 48%; 
+    width: 48%;
 }
-.clear{
-    float: clear; 
+
+.clear {
+    float: clear;
 }
