@@ -6,6 +6,7 @@ background and tablet friendly buttons, you can read and catalog any news feed t
 
 Join us at Simplicity! 
 
+## [Get started here](https://simplicity-rss-reader.herokuapp.com)
 
 <img src="https://i.imgur.com/ALLG5K7.png" width="1600" height="500" />
 
@@ -24,10 +25,6 @@ Join us at Simplicity!
 #### Browsers Unsupported 
 
 * Internet Explorer 
-
-#### Running 
-
-[Simplicity RSS Reader](https://simplicity-rss-reader.herokuapp.com)
 
 # Built With
 
