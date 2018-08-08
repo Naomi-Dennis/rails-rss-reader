@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   get "/logout", to: "users#signout", as: "logout_user"
 
   
+  
   resources :users, only: [:new, :show, :create, :update, :destroy]
   resources :feeds, only: [:index, :create, :update, :edit, :destroy]
   
-
+  resources :articles, only: [:show]
+  
   root "welcome#index"
 end

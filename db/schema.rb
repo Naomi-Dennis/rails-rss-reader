@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_07_194732) do
+ActiveRecord::Schema.define(version: 2018_08_07_223428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2018_08_07_194732) do
     t.integer "feed_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "read", default: false
   end
 
   create_table "feeds", force: :cascade do |t|
@@ -46,7 +47,7 @@ ActiveRecord::Schema.define(version: 2018_08_07_194732) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "background", default: "default_backgrounds/background-1.jpg"
+    t.string "background", default: "default_backgrounds/background-2.jpg"
   end
 
 end

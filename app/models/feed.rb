@@ -13,6 +13,9 @@ class Feed < ActiveRecord::Base
     Feed.all.map{ |feed| feed.updateFeed }
   end 
   ## instance functions
+  def unreadArticles 
+    articles.where(read: false).count
+  end 
   def isFeedUpdated? 
     data = open(url)
     feed = RSS::Parser.parse(data, false)

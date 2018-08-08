@@ -5,14 +5,20 @@
     <br/>
      <%= submit_tag "Read" %>
 <% end %>
+
+
+<% unless @feeds.empty? %> 
 <div id="article-shortcut-container">
 <% @feeds.each do | feed | %>
 <div class="article-shortcut">
 <a href="<%= edit_feed_url(feed) %>">
      <h2><%= feed.name %></h2>
-     <span><%= "#{feed.articles.count} Unread" %></span>
+     <span><%= "#{feed.unreadArticles} Unread" %></span>
  </a>
  </div>
 <% end %>
 </div>
 </div>
+<% else %>
+    <h2 style="text-align:center">You aren't subscribed to any feeds!</h2>
+<% end %>

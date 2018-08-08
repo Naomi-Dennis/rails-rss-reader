@@ -5,7 +5,7 @@
   <title>RssReader</title>
   <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta charset="utf-16">
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
           <style>
@@ -28,7 +28,7 @@
           <%= link_to "Simplicity RSS Reader", "/" %>
         </li>
         <li>
-          <%= link_to "View Account", user_url(getLoggedUser) %>
+          <%= link_to "#{getLoggedUser.username.capitalize}'s Account", user_url(getLoggedUser) %>
         </li>
         <li>
           <%= link_to "Sign Out", logout_user_url %>
