@@ -1,5 +1,6 @@
+<h1 id="feed-name"><%= @feed.name %></h1>
 <div id="view-feed-container">
-<h1><%= @feed.name %></h1>
+
 <div class="main-layout-right">
 <% @articlesByDate.each_key do |date| %>
  <% if @articlesByDate[date].length > 0 %>
