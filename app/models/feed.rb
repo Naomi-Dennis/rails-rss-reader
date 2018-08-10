@@ -19,7 +19,6 @@ class Feed < ActiveRecord::Base
   def isFeedUpdated? 
     data = open(url)
     feed = RSS::Parser.parse(data, false)
- 
     feed.channel.items.first.date.strftime("%B %d, %Y") == articles[0].date unless articles.empty?
   end 
 
